@@ -40,9 +40,9 @@ public class Main {
         var authorize = Http.buildUrl("https://login.live.com/oauth20_authorize.srf"
                 , Map.of(
                         //register app https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
-                        "client_id", "65669fcd-02f7-4ccb-a512-69e8a2261a5b"//client id
+                        "client_id", "c5a81fd2-ab3e-4217-8e8f-914ead0e3f03"//client id
                         , "response_type", "code"
-                        , "redirect_uri", "http://127.0.0.1:30828"//app redirect_uri
+                        , "redirect_uri", "https://necrons-slayer.onrender.com"//app redirect_uri
                         , "scope", "XboxLive.signin offline_access"
                 ));
         Desktop.getDesktop().browse(new URI(authorize));
@@ -53,7 +53,7 @@ public class Main {
             code = code.substring(code.lastIndexOf('=') + 1);
             var token = "https://login.live.com/oauth20_token.srf";
             var oauth = Http.postURL(token, Map.of(
-                    "client_id", "65669fcd-02f7-4ccb-a512-69e8a2261a5b"//client id
+                    "client_id", "c5a81fd2-ab3e-4217-8e8f-914ead0e3f03"//client id
                     , "code", code
                     , "grant_type", "authorization_code"
                     , "redirect_uri", "http://127.0.0.1:30828"
